@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 
 
 import styled from "styled-components";
-import { createMemo } from "../redux/modules/memo";
+import { createMemoFB } from "../redux/modules/memo";
 
 
 function Input() {
@@ -14,11 +14,13 @@ function Input() {
   const goEnter= ()=> {
     const titText = titRef.current.value
     const contText = contRef.current.value
-    console.log(titText,contText )
+    // console.log(titText,contText )
+
     titRef.current.value = "";
     contRef.current.value = "";
+
     window.alert('메모가 작성되었습니다');
-    dispatch(createMemo({title:titText, contents:contText, check:false}))
+    dispatch(createMemoFB({title:titText, contents:contText, check:false}))
   }
 
   return (

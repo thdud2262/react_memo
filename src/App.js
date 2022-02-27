@@ -5,12 +5,13 @@ import { useDispatch , useSelector } from 'react-redux';
 
 import './App.css';
 import { Input, Detail, MemoList, Update, NotPage } from './page/index';
-import { loadMemo } from './redux/modules/memo';
+import { loadMemoFB } from './redux/modules/memo';
 
 function App() {
+  const dispatch = useDispatch();
   
-  React.useEffect(()=>{
-    // dispatch(loadMemo())
+  React.useEffect(async()=>{
+    dispatch(loadMemoFB())
   },[])
 
   return (

@@ -3,7 +3,7 @@ import { useHistory, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 import styled from "styled-components";
-import { updateMemo } from "../redux/modules/memo";
+import { updateMemo, updateMemoFB } from "../redux/modules/memo";
 
 
 function Update() {
@@ -24,7 +24,7 @@ function Update() {
     // console.log(titText, contText)
     
     const memo = {title : titText, contents:contText, check:false } 
-    dispatch(updateMemo(index, memo))
+    dispatch(updateMemoFB(memo_data[index].id, memo))
     window.confirm('게시물이 수정되었습니다')
     history.push('/')
   }

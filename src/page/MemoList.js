@@ -8,7 +8,7 @@ function MemoList() {
   
   const history = useHistory();
   const memo = useSelector((state)=>state.memo.list)
-  console.log(memo)
+  // console.log(memo)
 
   return (
     <>

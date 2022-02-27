@@ -3,7 +3,7 @@ import { useHistory, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 import styled from "styled-components";
-import { deleteMemo } from "../redux/modules/memo";
+import { deleteMemoFB } from "../redux/modules/memo";
 
 
 function Detail() {
@@ -12,12 +12,11 @@ function Detail() {
   const dispatch = useDispatch()
   const history = useHistory();
   const index = useParams().idx
-  // console.log(memo_data[index].title)
+  // console.log(memo_data[index].id)
   
   const delMemo = () => {  
-    // dispatch(deleteMemo(index))
     if(window.confirm('게시물을 삭제할까요?')){
-      dispatch(deleteMemo(index))
+      dispatch(deleteMemoFB(memo_data[index].id))
       history.push('/')
     }
   }
