@@ -6,10 +6,14 @@ import { useDispatch , useSelector } from 'react-redux';
 import './App.css';
 import { Input, Detail, MemoList, Update, NotPage } from './page/index';
 import { loadMemoFB } from './redux/modules/memo';
+import Spinner from './Spinner';
+
 
 function App() {
   const dispatch = useDispatch();
-  
+  const is_loaded = useSelector((state)=> state.memo)
+  console.log(is_loaded)
+
   React.useEffect(async()=>{
     dispatch(loadMemoFB())
   },[])
@@ -33,6 +37,8 @@ function App() {
             <Route component={NotPage} />
           </Switch>
         </MemoBox>
+        {/* <Spinner/> */}
+        { !is_loaded && <Spinner/> }
       </Contain>
     </div>
   );

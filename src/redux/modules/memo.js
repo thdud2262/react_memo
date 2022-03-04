@@ -31,6 +31,7 @@ export function checkMemo(memo_index) {
 
 //initialState
 const initialState = {
+  is_loaded: false,
   list : [
     // {title: '영화보기', contents: '주술회전0 재밌따요!!!', check: false},
     // {title: '코딩공부', contents: '리액트 빨리 적응해서 재미있게 공부하장', check: false},
@@ -109,7 +110,7 @@ export default function reducer(state = initialState, action = {}) {
       // console.log(state, action)
       const new_memo_list = [...action.memo_list];
       // console.log(new_memo_list)
-      return { list : new_memo_list};
+      return { list : new_memo_list, is_loaded: true};
     }
 
     case "memo/CREATE" : {
